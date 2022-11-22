@@ -44,11 +44,13 @@
   {
   RCTAppSetupPrepareApp(application);
     
+
     
 
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
 
     
+ 
     
     
   #if RCT_NEW_ARCH_ENABLED
@@ -60,6 +62,10 @@
   #endif
 
   NSDictionary *initProps = [self prepareInitialProps];
+    
+ 
+    
+    
   UIView *rootView = RCTAppSetupDefaultRootView(bridge, @"poc_pushcall", initProps);
 
   if (@available(iOS 13.0, *)) {
@@ -147,5 +153,7 @@
   }
 
   #endif
+
+
 
   @end

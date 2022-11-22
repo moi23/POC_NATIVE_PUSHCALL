@@ -278,6 +278,26 @@ export default function App() {
         <Text>Display incoming call now in 3s</Text>
       </TouchableOpacity>
 
+      <TouchableOpacity
+        onPress={() => {
+          BackgroundTimer.runBackgroundTimer(() => {
+            //code that will be called every 3 seconds
+
+            RNCallKeep.displayIncomingCall(
+              '1d8ae94e-4fec-4b16-8a00-08be5ea0b9e3',
+              '15997022806',
+              (localizedCallerName = ''),
+              (handleType = 'number'),
+              (hasVideo = false),
+              (options = null),
+            );
+          }, 3000);
+        }}
+        style={styles.button}
+        hitSlop={hitSlop}>
+        <Text>TOCAR AGORA</Text>
+      </TouchableOpacity>
+
       {Object.keys(calls).map(callUUID => (
         <View key={callUUID} style={styles.callButtons}>
           <TouchableOpacity
